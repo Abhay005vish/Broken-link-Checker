@@ -32,8 +32,4 @@ const checkLinks = async (url) => {
 };
 
 module.exports = { checkLinks };
-[
-  { "link": "https://example.com", "status": 200 },
-  { "link": "https://broken-link.com", "status": 404 }
-]
 
