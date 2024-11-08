@@ -1,0 +1,56 @@
+<!-- src/views/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Broken Link Checker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Simple Broken Link Checker</h1>
+  <form id="urlForm">
+    <label for="url">Enter URL:</label>
+    <input type="text" id="url" name="url" required>
+    <button type="submit">Check Links</button>
+  </form>
+
+  <h2>Results:</h2>
+  <ul id="results"></ul>
+
+  <script>
+    const form = document.getElementById('urlForm');
+    const resultsList = document.getElementById('results');
+  
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      resultsList.innerHTML = 'Checking links...';
+  
+      const url = document.getElementById('url').value;
+      const response = await fetch('/check-links', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url })
+      });
+      
+      const results = await response.json();
+      resultsList.innerHTML = ''; // Clear previous results
+  
+      // Filter out links that have a status of 200 (only show broken links)
+      const brokenLinks = results.filter(result => result.status !== 200);
+  
+      if (brokenLinks.length === 0) {
+        resultsList.innerHTML = '<li>All links are working!</li>';
+      } else {
+        // Display only the broken links
+        brokenLinks.forEach(result => {
+          const listItem = document.createElement('li');
+          listItem.textContent = `${result.link} - ${result.status}`;
+          resultsList.appendChild(listItem);
+        });
+      }
+    });
+  </script>
+  
+  
+</body>
+</html>

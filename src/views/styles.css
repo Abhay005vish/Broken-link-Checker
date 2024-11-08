@@ -1,0 +1,163 @@
+/* styles.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f4f8;
+    color: #333;
+    padding: 20px;
+    overflow: scroll; /* Prevents scrolling of the entire page */
+}
+
+h1 {
+    font-size: 24px;
+    color: #0073e6;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #0073e6;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #005bb5;
+}
+
+#results-container {
+    width: 100%;
+    max-width: 600px;
+    position: fixed;
+    bottom: 0;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px 8px 0 0;
+    overflow-y: auto;
+    max-height: 40vh; /* Keeps the results container from taking up the whole screen */
+    z-index: 0;
+}
+
+h2 {
+    font-size: 20px;
+    color: #0073e6;
+    text-align: center;
+}
+
+#results {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 10px;
+    text-align: left;
+}
+
+#results li {
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+    color: #555;
+    word-break: break-all;
+}
+
+#results li:last-child {
+    border-bottom: none;
+}
+
+
+/* Responsive styles for smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+    }
+
+    form, #results-container {
+        padding: 10px;
+        max-width: 100%;
+        border-radius: 0;
+    }
+
+    input[type="text"] {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    #results-container {
+        max-height: 50vh;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    input[type="text"] {
+        font-size: 14px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    #results-container {
+        max-height: 55vh;
+    }
+}
+
