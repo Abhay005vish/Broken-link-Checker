@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "hello.js",
   "scripts": {
-    "start": "node src/app.js",          // Start script for Render
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "start": "node src/app.js"
+}
+,
   "keywords": [],
   "author": "",
   "license": "ISC",
